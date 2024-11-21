@@ -1,0 +1,95 @@
+2. What are the challenges you face in an ETL process, and how do you overcome them?
+
+Answer: Some common ETL challenges include:
+
+Data Quality: Inconsistent or incomplete data can cause problems during transformation. Solution: Implement data validation rules, and use scripts to clean and format data before loading.
+Performance Issues: ETL jobs can be resource-intensive. Solution: Optimize SQL queries, use parallel processing, and schedule ETL jobs during off-peak hours.
+Error Handling: Failures during extraction or transformation can disrupt data pipelines. Solution: Implement robust error handling mechanisms with logging and retries to minimize downtime.
+Data Integration: Combining data from different sources can lead to schema mismatches. Solution: Use data mapping and transformation logic to harmonize the data formats.
+
+3. How do you optimize ETL processes to ensure performance?
+
+Answer: Optimizing ETL involves several strategies:
+
+Parallel Processing: Splitting data into chunks and processing them in parallel.
+Batch Processing: Grouping small transactions into batches to reduce the overhead of frequent loads.
+Indexing: Creating indexes on frequently queried columns to improve retrieval speed.
+Partitioning: Partitioning large tables in the database to improve query performance.
+Incremental Loading: Only loading the changes (delta) instead of the entire dataset to reduce processing time.
+
+4. How do you handle errors during the ETL process?
+
+Answer: Error handling is critical to ensuring that data pipelines remain reliable. Common practices include:
+
+Logging Errors: Capture detailed logs for errors encountered during extraction, transformation, or loading.
+Retries: Implement automatic retries for transient errors, such as network issues.
+Data Validation: Perform validations before and after each step to ensure data consistency.
+Rollback: For critical errors, rollback the entire transaction to prevent incomplete data loads.
+Alerts: Set up alerts (e.g., via email, Slack) to notify the team of any failures or anomalies.
+
+5. Can you explain how you have used Python for ETL processes?
+
+Answer: In my experience, I have used Python extensively for ETL, particularly for:
+
+Data Extraction: Writing scripts to pull data from APIs, databases (MySQL, PostgreSQL), and files (CSV, JSON).
+Transformation: Using Python libraries like Pandas to clean, filter, and aggregate data. I have also handled complex transformations like date formatting, string manipulation, and data deduplication.
+Loading: Writing SQL scripts using SQLAlchemy or PyMySQL to load transformed data into MySQL databases.
+For example, in my previous project Full Picture (Refinitiv), I wrote Python scripts to extract stock exchange data, transform it to a standardized format, and load it into MySQL for reporting.
+
+6. How would you design an ETL pipeline for a data warehouse?
+
+Answer: To design an ETL pipeline for a data warehouse:
+
+Source Identification: Identify the sources (e.g., transactional databases, APIs, logs).
+Data Extraction: Use connectors to pull raw data from various sources. This could involve scheduled batch jobs or real-time streaming.
+Data Staging: Store raw data in a staging area (often a temporary database or files).
+Transformation: Apply business rules for transformation (e.g., cleaning, normalization, aggregations). This step ensures data is harmonized.
+Loading: Load transformed data into the target data warehouse. This could involve partitioned tables to support faster queries.
+Data Validation: Validate the data post-load to ensure that the ETL process was successful.
+Monitoring & Alerts: Monitor the pipeline and set up alerts for errors or performance bottlenecks.
+
+7. What is the difference between ETL and ELT? When would you use each?
+
+Answer:
+
+ETL (Extract, Transform, Load): Data is extracted, transformed into the desired format, and then loaded into the destination (e.g., a data warehouse).
+ELT (Extract, Load, Transform): Data is extracted and loaded into the destination first, and the transformation happens in the data warehouse.
+When to use ETL:
+
+When transformation needs to happen before the data is loaded, especially for complex business rules.
+When the target system is not powerful enough to handle large-scale transformations.
+When to use ELT:
+
+When working with a modern data warehouse (e.g., Snowflake, BigQuery) that can handle large-scale transformations efficiently.
+For processing very large datasets where it’s better to offload transformations to the data warehouse itself.
+
+8. What tools have you used for scheduling and monitoring ETL jobs?
+
+Answer: 
+
+For scheduling and monitoring ETL jobs, I have used:
+Airflow: A Python-based tool for managing complex workflows. It allows for task scheduling, retries, and monitoring via a web interface.
+Cron Jobs: For smaller tasks, I have used Linux’s built-in cron to schedule ETL scripts.
+Jenkins: For CI/CD pipelines and automating ETL tasks as part of a larger deployment process.
+Nagios: For monitoring server performance and ETL job health by setting up custom alerts.
+
+9. How do you ensure data consistency between the source and target after the ETL process?
+
+Answer: To ensure data consistency:
+
+Checksums/Hashing: Use checksums or hash functions to compare source and target data after loading.
+Row Counts: Compare row counts between the source and target tables.
+Reconciliation Reports: Generate reports that show discrepancies between the source and target.
+Audit Tables: Maintain audit tables to track changes and ensure data has been properly processed.
+Transactional Loading: Use database transactions to ensure data integrity. Rollback if any issues occur during the load.
+
+10. Describe a situation where you had to troubleshoot a slow ETL process. What steps did you take?
+
+Answer: In one instance, an ETL job pulling data from multiple sources was running much slower than expected. I followed these steps to troubleshoot:
+
+Identified Bottleneck: Checked the logs and used profiling tools to identify that the transformation phase (joining tables) was causing the slowdown.
+Query Optimization: Optimized SQL queries by indexing the join columns and breaking complex queries into simpler steps.
+Batch Processing: Modified the ETL job to process data in smaller batches, reducing memory load.
+Parallelization: Implemented parallel processing for different data sources to speed up extraction.
+Resource Allocation: Allocated more resources (CPU, RAM) to the ETL server during the load phase.
+After these optimizations, the ETL job runtime was reduced by over 40%.

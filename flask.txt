@@ -1,0 +1,48 @@
+Here are some common Flask interview questions to help you prepare:
+
+What is Flask, and why would you choose it over Django?
+
+Flask is a lightweight web framework for Python. It provides flexibility, simplicity, and minimalism compared to Django, which is more feature-rich but can be heavier for smaller applications. Flask is ideal for projects that need custom solutions or have specific requirements without the overhead of Django's built-in components.
+
+Explain Flask’s request and response cycle.
+
+When a client sends a request to a Flask server, Flask creates a Request object. This is passed through view functions that process the data. Based on the logic, a Response object is created and sent back to the client.
+
+How does routing work in Flask?
+
+Flask uses decorators (@app.route()) to bind a URL to a function (view function). When a user accesses a URL, the corresponding function is executed. Flask allows for dynamic routing using variables within the URL patterns.
+
+What are Flask Blueprints, and when would you use them?
+
+Blueprints in Flask allow you to organize your application into smaller components or modules. They're useful for creating large applications with multiple views and functionalities by keeping related functions, templates, and static files grouped together.
+
+How can you handle sessions in Flask?
+
+Flask provides a session object, which allows you to store information across requests, like login sessions. Flask uses signed cookies by default to store the session data. It’s important to configure a SECRET_KEY for security.
+
+What are Flask extensions? Can you name a few?
+
+Flask extensions are packages that extend Flask’s core functionality. Common extensions include:
+Flask-SQLAlchemy for database integration.
+Flask-WTF for form handling.
+Flask-Login for user authentication.
+
+How do you handle form submissions in Flask?
+
+Forms can be processed by defining a route to handle the POST request. Flask provides access to form data via request.form for POST and request.args for GET requests. Flask-WTF can be used for easier form management.
+
+Explain the difference between app.run() and using a WSGI server in production.
+
+app.run() is used for running Flask in development mode. For production, it's recommended to use a WSGI server like Gunicorn or uWSGI, which can handle multiple requests more efficiently and provide better scalability.
+
+How would you configure and use databases in Flask?
+
+Flask doesn't come with a database layer, but you can use extensions like Flask-SQLAlchemy to integrate databases like MySQL, PostgreSQL, etc. You configure your database URI in the app’s configuration and use the SQLAlchemy ORM to interact with the database.
+
+How do you implement API endpoints in Flask?
+
+Flask allows you to create RESTful APIs by defining routes that return JSON responses using the jsonify() function. You can specify HTTP methods like GET, POST, PUT, and DELETE for different routes.
+
+What is Flask-Migrate, and how is it used?
+
+Flask-Migrate is an extension that manages database migrations for Flask applications using SQLAlchemy. It helps track changes to your database schema and apply migrations without manual SQL scripting.
