@@ -135,124 +135,124 @@
         
 # print(my_dict)
 
-def longest_string_between_duplicates(s):
-    # Remove spaces from the string
-    s = s.replace(" ", "")  # or use s = ''.join(s.split())
+# def longest_string_between_duplicates(s):
+#     # Remove spaces from the string
+#     s = s.replace(" ", "")  # or use s = ''.join(s.split())
     
-    # Dictionary to store the first occurrence index of each character
-    char_indices = {}
-    longest_substring = ""
+#     # Dictionary to store the first occurrence index of each character
+#     char_indices = {}
+#     longest_substring = ""
     
-    # Traverse the string using a for loop with range
-    for i in range(len(s)):
-        char = s[i]
-        if char in char_indices:
-            # If character already seen, calculate the substring between first and second occurrence
-            start_index = char_indices[char] + 1
-            substring = s[start_index:i]
+#     # Traverse the string using a for loop with range
+#     for i in range(len(s)):
+#         char = s[i]
+#         if char in char_indices:
+#             # If character already seen, calculate the substring between first and second occurrence
+#             start_index = char_indices[char] + 1
+#             substring = s[start_index:i]
             
-            # Update the longest substring if the current one is longer
-            if len(substring) > len(longest_substring):
-                longest_substring = substring
-        else:
-            # Store the index of the first occurrence of the character
-            char_indices[char] = i
+#             # Update the longest substring if the current one is longer
+#             if len(substring) > len(longest_substring):
+#                 longest_substring = substring
+#         else:
+#             # Store the index of the first occurrence of the character
+#             char_indices[char] = i
     
-    return longest_substring
+#     return longest_substring
 
-# Example usage:
-input_string = "abc de ffg hijklmnoab cxyz"
-longest_substring = longest_string_between_duplicates(input_string)
-print(f"Longest substring between duplicate characters: '{longest_substring}'")
+# # Example usage:
+# input_string = "abc de ffg hijklmnoab cxyz"
+# longest_substring = longest_string_between_duplicates(input_string)
+# print(f"Longest substring between duplicate characters: '{longest_substring}'")
 
 
-____________________________________________________________________________________
+# ____________________________________________________________________________________
 
-def longest_string_between_duplicates(s):
-    # Dictionary to store the first occurrence index of each character
-    s = s.replace(" ", "")
-    char_indices = {}
-    longest_substring = ""
+# def longest_string_between_duplicates(s):
+#     # Dictionary to store the first occurrence index of each character
+#     s = s.replace(" ", "")
+#     char_indices = {}
+#     longest_substring = ""
     
-    # Traverse the string
-    for i, char in enumerate(s):
-        if char in char_indices:
-            # If character already seen, calculate the substring between first and second occurrence
-            start_index = char_indices[char] + 1
-            substring = s[start_index:i]
+#     # Traverse the string
+#     for i, char in enumerate(s):
+#         if char in char_indices:
+#             # If character already seen, calculate the substring between first and second occurrence
+#             start_index = char_indices[char] + 1
+#             substring = s[start_index:i]
             
-            # Update the longest substring if the current one is longer
-            if len(substring) > len(longest_substring):
-                longest_substring = substring
-        else:
-            # Store the index of the first occurrence of the character
-            char_indices[char] = i
+#             # Update the longest substring if the current one is longer
+#             if len(substring) > len(longest_substring):
+#                 longest_substring = substring
+#         else:
+#             # Store the index of the first occurrence of the character
+#             char_indices[char] = i
     
-    return longest_substring
+#     return longest_substring
 
-# Example usage:
-input_string = "This is a demo for testing duplicate demo"
-longest_substring = longest_string_between_duplicates(input_string)
-print(f"Longest substring between duplicate characters: '{longest_substring}'")
+# # Example usage:
+# input_string = "This is a demo for testing duplicate demo"
+# longest_substring = longest_string_between_duplicates(input_string)
+# print(f"Longest substring between duplicate characters: '{longest_substring}'")
 
 
-def shortest_substring_between_duplicates(s):
-    min_length = len(s) + 1
-    start_index = -1
-    end_index = -1
+# def shortest_substring_between_duplicates(s):
+#     min_length = len(s) + 1
+#     start_index = -1
+#     end_index = -1
 
-    for i in range(len(s)):
-        for j in range(i + 1, len(s)):
-            # Check if there's a duplicate character
-            if s[i] == s[j]:
-                # Calculate the length between duplicates
-                length = j - i - 1
+#     for i in range(len(s)):
+#         for j in range(i + 1, len(s)):
+#             # Check if there's a duplicate character
+#             if s[i] == s[j]:
+#                 # Calculate the length between duplicates
+#                 length = j - i - 1
                 
-                # Update minimum length and substring indices if this is the shortest found
-                if length < min_length:
-                    min_length = length
-                    start_index = i + 1
-                    end_index = j
-                break  # Stop once we find the next duplicate for this character
+#                 # Update minimum length and substring indices if this is the shortest found
+#                 if length < min_length:
+#                     min_length = length
+#                     start_index = i + 1
+#                     end_index = j
+#                 break  # Stop once we find the next duplicate for this character
 
-    # Manually build the substring between start_index and end_index
-    result = ""
-    if start_index != -1 and end_index != -1:
-        for k in range(start_index, end_index):
-            result += s[k]
+#     # Manually build the substring between start_index and end_index
+#     result = ""
+#     if start_index != -1 and end_index != -1:
+#         for k in range(start_index, end_index):
+#             result += s[k]
 
-    return result if result else "No duplicate characters found"
+#     return result if result else "No duplicate characters found"
 
-# Test example
-s = "abcdae"
-print("Shortest substring between duplicates:", shortest_substring_between_duplicates(s))
+# # Test example
+# s = "abcdae"
+# print("Shortest substring between duplicates:", shortest_substring_between_duplicates(s))
 
 
-def shortest_substring_between_duplicates(s):
-    char_indices = {}
-    min_length = float('inf')
-    shortest_substring = ""
+# def shortest_substring_between_duplicates(s):
+#     char_indices = {}
+#     min_length = float('inf')
+#     shortest_substring = ""
 
-    for i, char in enumerate(s):
-        # If the character is seen before
-        if char in char_indices:
-            # Calculate the distance between the duplicates
-            start_index = char_indices[char]
-            length = i - start_index - 1  # Exclude the duplicate characters themselves
+#     for i, char in enumerate(s):
+#         # If the character is seen before
+#         if char in char_indices:
+#             # Calculate the distance between the duplicates
+#             start_index = char_indices[char]
+#             length = i - start_index - 1  # Exclude the duplicate characters themselves
             
-            # Update the minimum length and substring if this is the shortest
-            if length < min_length:
-                min_length = length
-                shortest_substring = s[start_index + 1 : i]
-        # Store the index of the first occurrence of the character
-        char_indices[char] = i
+#             # Update the minimum length and substring if this is the shortest
+#             if length < min_length:
+#                 min_length = length
+#                 shortest_substring = s[start_index + 1 : i]
+#         # Store the index of the first occurrence of the character
+#         char_indices[char] = i
 
-    # Return the result or indicate if no duplicate characters were found
-    return shortest_substring if shortest_substring else "No duplicate characters found"
+#     # Return the result or indicate if no duplicate characters were found
+#     return shortest_substring if shortest_substring else "No duplicate characters found"
 
-# Test example
-s = "abcdae"
-print("Shortest substring between duplicates:", shortest_substring_between_duplicates(s))
+# # Test example
+# s = "abcdae"
+# print("Shortest substring between duplicates:", shortest_substring_between_duplicates(s))
 
 
 # 1.X = [10,20,30] print last 2 values using : operator
@@ -911,24 +911,24 @@ print("Shortest substring between duplicates:", shortest_substring_between_dupli
 # __init__ is an instance method that takes the newly created instance as its first argument (conventionally named self),
 # followed by any additional arguments passed to the constructor.
 # __init__ does not return anything; it modifies the instance in place.
-# class MyClass:
-#     def __new__(cls, *args, **kwargs):
-#         print("Creating instance (calling __new__)")
-#         instance = super().__new__(cls)
-#         return instance
-# 
-#     def __init__(self, value):
-#         print("Initializing instance (calling __init__)")
-#         self.value = value
-# 
-#     def display_value(self):
-#         print(f"Value: {self.value}")
-# 
-# # Creating an instance of MyClass
-# obj = MyClass(10)
-# 
-# # Displaying the value
-# obj.display_value()
+class MyClass:
+    def __new__(cls, *args, **kwargs):
+        print("Creating instance (calling __new__)")
+        instance = super().__new__(cls)
+        return instance
+
+    def __init__(self, value):
+        print("Initializing instance (calling __init__)")
+        self.value = value
+
+    def display_value(self):
+        print(f"Value: {self.value}")
+
+# Creating an instance of MyClass
+obj = MyClass(10)
+
+# Displaying the value
+obj.display_value()
 
 # 9. Can we call a constructor after creating an object?
 
