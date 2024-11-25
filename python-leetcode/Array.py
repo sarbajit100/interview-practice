@@ -64,3 +64,34 @@
 # print(a)
 
 # Intersection of Two Arrays II
+# from collections import Counter
+# nums1 = [1,2,2,1]
+# nums2 = [2,2]
+
+# def intersect(nums1, nums2):
+#     c=Counter(nums1)
+#     res = []
+#     for n in nums2:
+#         if c[n]>0:
+#             res.append(n)
+#             c[n]-=1
+#     return res
+# print(intersect(nums1, nums2))
+
+# nums1 = [1,2,2,1]
+# nums2 = [2,2]
+# num1 = sorted(nums1)
+# num2 = sorted(nums2)
+
+# i,j = 0,0
+# res = []
+# while i<len(num1) and j<len(num2):
+#     if num1[i]<num2[j]:
+#         i+=1
+#     elif num1[i]>num2[j]:
+#         j+=1
+#     else:
+#         res.append(num1[i])
+#         i+=1
+#         j+=1
+# print(res)
