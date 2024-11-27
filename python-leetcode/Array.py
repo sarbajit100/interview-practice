@@ -95,3 +95,91 @@
 #         i+=1
 #         j+=1
 # print(res)
+
+# def moveZeroes(nums):
+#         result = []
+#         count=0
+#         for i in range(len(nums)):
+#             if nums[i]!=0:
+#                 result.append(nums[i])
+#             else:
+#                 count+=1
+#         for j in range(0,count):
+#             result.append(0)
+#         return result
+# pr = moveZeroes([1,0,2,0,3,12])
+# print(pr)
+
+# Input: digits = [9]
+# Output: [1,0]
+# def plusOne(self, digits):
+#     string = int(''.join(map(str, digits)))
+#     total=string+1
+#     """
+#     :type digits: List[int]
+#     :rtype: List[int]
+#     """
+#     result = [int(digit) for digit in str(total)]
+#     return result
+
+# def moveZeroes(self, nums):
+#     count=0
+#     """
+#     :type nums: List[int]
+#     :rtype: None Do not return anything, modify nums in-place instead.
+#     """
+#     for i in range(len(nums)):
+#         if nums[i]!=0:
+#             nums[count]=nums[i]
+#             count+=1
+#     for j in range(count, len(nums)):
+#         nums[j]=0
+#     return num
+
+# Input: nums = [2,7,11,15], target = 9
+# Output: [0,1]
+# def twoSum(self, nums, target):
+#     result = []
+#     """
+#     :type nums: List[int]
+#     :type target: int
+#     :rtype: List[int]
+#     """
+#     for i in range(len(nums)):
+#         for j in range(i+1,len(nums)):
+#             if nums[i]+nums[j]==target:
+#                 result.append(i)
+#                 result.append(j)
+#     return result
+
+# import collections
+
+
+# board = [["5","3",".",".","7",".",".",".","."]
+# ,["6",".",".","1","9","5",".",".","."]
+# ,[".","9","8",".",".",".",".","6","."]
+# ,["8",".",".",".","6",".",".",".","3"]
+# ,["4",".",".","8",".","3",".",".","1"]
+# ,["7",".",".",".","2",".",".",".","6"]
+# ,[".","6",".",".",".",".","2","8","."]
+# ,[".",".",".","4","1","9",".",".","5"]
+# ,[".",".",".",".","8",".",".","7","9"]]
+
+# def isValidSudoku(self, board):
+#     """
+#     :type board: List[List[str]]
+#     :rtype: bool
+#     """
+#     colum = collections.defaultdict(set)
+#     row = collections.defaultdict(set)
+#     square = collections.defaultdict(set)
+#     for r in range(9):
+#         for c in range(9):
+#             if board[r][c]==".":
+#                 continue
+#             if (board[r][c] in colum[c] or board[r][c] in row[r] or board[r][c] in square[(r/3,c/3)]):
+#                 return False
+#             colum[c].add(board[r][c])
+#             row[r].add(board[r][c])
+#             square[(r/3,c/3)].add(board[r][c])
+#     return True
