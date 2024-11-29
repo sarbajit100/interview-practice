@@ -20,7 +20,7 @@
 # else:
 #     print("I didn't understand")
 
-# num1 = int(input("Enter the first number: "))
+# num1 =int(input("Enter the first number: "))
 # num2 = int(input("Enter the second number: "))
 # num3 = int(input("Enter the third number: "))
 # num4 = int(input("Enter the fourth number: "))
