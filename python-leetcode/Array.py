@@ -1,12 +1,12 @@
 # Remove Duplicates from Sorted Array
-# num = [1,5,6,8,5,1,9]
-# nums = sorted(num)
-# l=1
-# for r in range(1,len(nums)):
-#     if nums[r] != nums[r-1]:
-#         nums[l] = nums[r]
-#         l += 1
-# print(l)
+num = [1,5,6,8,5,1,9]
+nums = sorted(num)
+l=1
+for r in range(1,len(nums)):
+    if nums[r] != nums[r-1]:
+        nums[l] = nums[r]
+        l += 1
+print(l)
 
 # Best Time to Buy and Sell Stock II
 # prices = [7,1,5,3,6,4]

@@ -1,0 +1,69 @@
+from abc import abstractmethod
+# find s2 is a substring of s1 or not a substring
+s1 = "This is my Christmas Party"
+s2 = "chams"
+# method one
+is_subset = s1.find(s2) != -1
+print(is_subset)
+# method Two
+is_subset = False
+for i in range(len(s1)-len(s2)+1):
+    if s1[i:i + len(s2)] == s2:
+        is_subset = True
+        break
+    
+print(is_subset)
+
+# convert the string into an integer
+s = "-12345"
+result = 0
+is_negative = False
+
+if s[0] == '-':
+    is_negative = True
+    s = s[1:]
+
+for char in s:
+    digit  = ord(char) - ord("0")
+    result = result *10 + digit
+    
+if is_negative:
+    result = -result
+print(result)
+
+# Encapsulation and abstraction
+class Shape:
+    def __init__(self, color):
+        self.color = color # Encapsulation
+    @abstractmethod
+    def area(self):
+        pass
+    def display(self): #abstraction
+        print(self.color)
+
+#Inheritance
+class Rectangle(Shape):
+    def __init__(self, color  , length, width):
+        super().__init__(color)   # Inheriting from shape class
+        self.length = length
+        self.width = width
+    # polymorphism (Overriding the method)
+    def  area(self):
+        return  self.length * self.width
+        
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
+        
+    def area(self):
+        import math
+        return math.pi * self.radius * self.radius
+    
+a = 10
+def add(c, b):
+    global a
+    a = a + b  # This will modify the global 'a'
+    return a
+
+print(add(30, 40))

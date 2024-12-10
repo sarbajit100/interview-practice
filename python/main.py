@@ -1,19 +1,19 @@
 # GENERATE AN INFINITE FIBONNACI RERIES BY GENERATER
 
-# def fibonacci():
-#     a,b=0,1
-#     while True:
-#         yield a
-#         a,b=b,a+b
-# f1 = fibonacci()
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
+def fibonacci():
+    a,b=0,1
+    while True:
+        yield a
+        a,b=b,a+b
+f1 = fibonacci()
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
 
 # l = [1,2,8,6,25,88,21,4]
 
@@ -911,24 +911,24 @@
 # __init__ is an instance method that takes the newly created instance as its first argument (conventionally named self),
 # followed by any additional arguments passed to the constructor.
 # __init__ does not return anything; it modifies the instance in place.
-class MyClass:
-    def __new__(cls, *args, **kwargs):
-        print("Creating instance (calling __new__)")
-        instance = super().__new__(cls)
-        return instance
+# class MyClass:
+#     def __new__(cls, *args, **kwargs):
+#         print("Creating instance (calling __new__)")
+#         instance = super().__new__(cls)
+#         return instance
 
-    def __init__(self, value):
-        print("Initializing instance (calling __init__)")
-        self.value = value
+#     def __init__(self, value):
+#         print("Initializing instance (calling __init__)")
+#         self.value = value
 
-    def display_value(self):
-        print(f"Value: {self.value}")
+#     def display_value(self):
+#         print(f"Value: {self.value}")
 
-# Creating an instance of MyClass
-obj = MyClass(10)
+# # Creating an instance of MyClass
+# obj = MyClass(10)
 
-# Displaying the value
-obj.display_value()
+# # Displaying the value
+# obj.display_value()
 
 # 9. Can we call a constructor after creating an object?
 
