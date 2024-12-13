@@ -67,3 +67,10 @@ def add(c, b):
     return a
 
 print(add(30, 40))
+
+
+f = list()
+for i in "6789":
+    f.append(int(i))
+
+print(f)
