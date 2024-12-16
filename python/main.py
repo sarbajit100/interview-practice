@@ -911,24 +911,24 @@
 # __init__ is an instance method that takes the newly created instance as its first argument (conventionally named self),
 # followed by any additional arguments passed to the constructor.
 # __init__ does not return anything; it modifies the instance in place.
-class MyClass:
-    def __new__(cls, *args, **kwargs):
-        print("Creating instance (calling __new__)")
-        instance = super().__new__(cls)
-        return instance
+# class MyClass:
+#     def __new__(cls, *args, **kwargs):
+#         print("Creating instance (calling __new__)")
+#         instance = super().__new__(cls)
+#         return instance
 
-    def __init__(self, value):
-        print("Initializing instance (calling __init__)")
-        self.value = value
+#     def __init__(self, value):
+#         print("Initializing instance (calling __init__)")
+#         self.value = value
 
-    def display_value(self):
-        print(f"Value: {self.value}")
+#     def display_value(self):
+#         print(f"Value: {self.value}")
 
-# Creating an instance of MyClass
-obj = MyClass(10)
+# # Creating an instance of MyClass
+# obj = MyClass(10)
 
-# Displaying the value
-obj.display_value()
+# # Displaying the value
+# obj.display_value()
 
 # 9. Can we call a constructor after creating an object?
 
@@ -982,6 +982,67 @@ obj.display_value()
 # # Creating 10 objects of MyClass
 # objects = [MyClass(i) for i in range(10)]
 
+# reverse a string
+# s='sarbajit'
+# char_list = list(s)
+# char_list.reverse()
+# reverse_string = ''.join(char_list)
+# print(reverse_string)
+
+# s='sarbajit'
+# reverse_str = ''
+# left = 0
+# right = len(s)-1
+# while left<=right:
+#     reverse_str += s[right]
+#     right -= 1
+# print(reverse_str)
+
+# s='sarbajit'
+# str_list=list(s)
+# left = 0
+# right = len(s)-1
+# while left<right:
+#     str_list[left],str_list[right] = str_list[right],str_list[left]
+#     left += 1
+#     right -= 1
+# s = ''.join(str_list)
+# print(s)
+
+
+
+s1 = 'sarbajit is looking for job'
+longest_string = ''
+n = len(s1)
+
+# Iterate over each character as the starting point
+for left in range(n):
+    for right in range(n - 1, left, -1):  # Start from the end and move left
+        if s1[left] == s1[right]:
+            # Check the substring length
+            current_substring = s1[left + 1:right]
+            if len(current_substring) > len(longest_string):
+                longest_string = current_substring
+            break  # No need to check further for this `left`
+
+print(f"The longest substring between duplicate characters: '{longest_string}'")
+s1 = 'sarbajit is looking for job'
+longest_string = ''
+left = 0
+n = len(s1)
+
+while left < n:
+    right = n - 1  # Start the `right` pointer from the end of the string
+    while right > left:
+        if s1[left] == s1[right]:
+            current_substring = s1[left + 1:right]
+            if len(current_substring) > len(longest_string):
+                longest_string = current_substring
+            break  # Exit the inner loop once a match is found
+        right -= 1  # Move the `right` pointer to the left
+    left += 1  # Move the `left` pointer to the next character
+
+print(f"The longest substring between duplicate characters: '{longest_string}'")
 
 
 
@@ -1010,20 +1071,3 @@ obj.display_value()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
