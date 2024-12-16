@@ -1,0 +1,30 @@
+1-What are Python’s key features?
+2-How is Python interpreted?
+3-What are Python's built-in data types?
+4-What is the difference between a list and a tuple?
+5-What are Python decorators?
+What is the difference between is and ==?
+What are list comprehensions?
+What are Python's common built-in modules?
+How does Python manage memory?
+What is the GIL (Global Interpreter Lock)?
+Explain Python's with statement.
+What are metaclasses in Python?
+Explain Python's *args and **kwargs.
+What are Python generators?
+What is the difference between a class and an instance?
+What are @classmethod, @staticmethod, and instance methods?
+What is the difference between __init__ and __new__?
+What is inheritance in Python?
+What is the difference between __str__ and __repr__?
+What is Flask, and how is it different from Django?
+How do you handle exceptions in Python?
+How do you read and write files in Python?
+How is a dictionary different from a list?
+What is the difference between a shallow copy and a deep copy?
+How would you implement a stack in Python?
+How would you reverse a string in Python?
+How do you remove duplicates from a list?
+How do you implement a singleton pattern in Python?
+How do you find the intersection of two lists?
+How can you optimize Python code?

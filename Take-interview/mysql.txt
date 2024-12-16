@@ -1,0 +1,114 @@
+Basic MySQL Questions
+What is MySQL?
+
+MySQL is an open-source relational database management system (RDBMS) that uses SQL (Structured Query Language) to manage and query data.
+What is the difference between MySQL and SQL?
+
+SQL (Structured Query Language) is a language for querying and managing databases, while MySQL is an RDBMS that uses SQL to interact with data.
+What are the different types of JOINs in MySQL?
+
+INNER JOIN: Returns only the rows with matching values in both tables.
+LEFT JOIN (or LEFT OUTER JOIN): Returns all rows from the left table and matching rows from the right table.
+RIGHT JOIN (or RIGHT OUTER JOIN): Returns all rows from the right table and matching rows from the left table.
+FULL JOIN: Returns all rows when there is a match in either the left or right table.
+What is a primary key?
+
+A primary key is a unique identifier for a record in a table. It must contain unique values, and no NULL values are allowed.
+What is a foreign key?
+
+A foreign key is a field in one table that uniquely identifies a row in another table. It establishes a relationship between the two tables.
+What are indexes in MySQL?
+
+Indexes are used to speed up the retrieval of rows from a database. An index is a data structure that improves query performance but can slow down insert, update, and delete operations.
+What are the different types of indexes in MySQL?
+
+Unique Index: Ensures that all values in the indexed column(s) are unique.
+Primary Index: A unique index that also serves as the primary key.
+Full-text Index: Optimizes text searching.
+Composite Index: An index on multiple columns.
+Intermediate MySQL Questions
+What is normalization in MySQL?
+
+Normalization is the process of organizing data to reduce redundancy and dependency. It involves dividing a database into tables and creating relationships between them. The goal is to make the database more efficient and easier to maintain.
+What are the different normal forms in MySQL?
+
+1st Normal Form (1NF): Ensures that all columns contain atomic (indivisible) values.
+2nd Normal Form (2NF): Ensures that the database is in 1NF and that all non-key attributes are fully dependent on the primary key.
+3rd Normal Form (3NF): Ensures that the database is in 2NF and that all attributes are non-transitively dependent on the primary key.
+What is a subquery in MySQL?
+
+A subquery is a query nested inside another query. It can be used in SELECT, INSERT, UPDATE, and DELETE statements.
+What is the difference between WHERE and HAVING clauses?
+
+WHERE: Filters rows before aggregation (used with SELECT, UPDATE, DELETE).
+HAVING: Filters groups after aggregation (used with GROUP BY).
+What is a transaction in MySQL?
+
+A transaction is a sequence of one or more SQL operations that are executed as a single unit. Transactions ensure data integrity by following ACID properties (Atomicity, Consistency, Isolation, Durability).
+What are the ACID properties of a transaction?
+
+Atomicity: All operations in a transaction are completed, or none are.
+Consistency: The database moves from one valid state to another.
+Isolation: Transactions are isolated from one another.
+Durability: Once a transaction is committed, the changes are permanent.
+What are the different isolation levels in MySQL?
+
+Read Uncommitted: Transactions can read uncommitted data from other transactions.
+Read Committed: Transactions can only read committed data.
+Repeatable Read: Ensures that if a transaction reads a value, it will get the same value on subsequent reads.
+Serializable: The highest isolation level, where transactions are executed serially.
+Advanced MySQL Questions
+What is the difference between TRUNCATE and DELETE?
+
+TRUNCATE: Removes all rows from a table, but the table structure remains. It’s faster than DELETE and does not log individual row deletions.
+DELETE: Removes rows from a table one at a time and logs the deletion. It can be used with a WHERE clause to delete specific rows.
+What is a view in MySQL?
+
+A view is a virtual table based on the result of a SELECT query. It does not store data itself but shows data from one or more tables.
+What is a stored procedure in MySQL?
+
+A stored procedure is a set of SQL statements that can be executed as a single unit. It is stored in the database and can be reused.
+What is a trigger in MySQL?
+
+A trigger is a stored procedure that is automatically executed when certain events (such as INSERT, UPDATE, DELETE) occur on a specified table.
+What is the EXPLAIN statement in MySQL?
+
+The EXPLAIN statement provides information about how MySQL executes a query, showing details about the query execution plan (such as table scans, indexes used, and join types).
+What is a MySQL join optimization?
+
+Optimize JOINs by:
+Ensuring proper indexes on columns used in JOINs.
+Reducing the number of records processed (e.g., filtering with WHERE before JOIN).
+Using appropriate JOIN types based on query requirements.
+What is replication in MySQL?
+
+Replication in MySQL is the process of copying data from one server (master) to another (slave). It is used for scaling, backup, and redundancy.
+What is sharding in MySQL?
+
+Sharding is the process of splitting data into smaller, more manageable parts (shards), which can be stored on separate servers. This helps improve scalability and performance for large databases.
+What is the difference between MyISAM and InnoDB storage engines?
+
+MyISAM: Non-transactional, faster for read-heavy applications, does not support foreign keys.
+InnoDB: Transactional, supports ACID properties, foreign keys, and better for write-heavy applications.
+What is a deadlock in MySQL? How can you prevent it?
+
+A deadlock occurs when two or more transactions are blocked, each waiting for the other to release a lock. To prevent deadlocks:
+Access tables in the same order in all transactions.
+Use shorter transactions.
+Implement proper indexing.
+Performance Tuning and Optimization
+How can you optimize a slow MySQL query?
+
+Use the EXPLAIN statement to analyze the query execution plan.
+Index the columns involved in WHERE, JOIN, and ORDER BY clauses.
+Avoid using SELECT *; select only necessary columns.
+Consider query caching, partitioning large tables, or denormalization.
+What are partitioned tables in MySQL?
+
+Partitioning is dividing large tables into smaller, more manageable pieces. Each partition can be stored on a different file or disk, improving query performance.
+How do you handle large datasets in MySQL?
+
+Use indexing, partitioning, query optimization, and caching to manage large datasets efficiently.
+What is query optimization in MySQL?
+
+Query optimization involves writing efficient SQL queries, using appropriate indexes, minimizing nested subqueries, and reducing the number of rows processed.

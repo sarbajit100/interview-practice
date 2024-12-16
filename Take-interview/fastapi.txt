@@ -1,0 +1,189 @@
+Basic FastAPI Concepts
+What is FastAPI?
+
+FastAPI is a modern, fast (high-performance) web framework for building APIs with Python, based on standard Python type hints.
+What are the main advantages of using FastAPI?
+
+Automatic validation using Python type hints.
+Interactive API documentation (Swagger UI and ReDoc).
+Asynchronous support with async and await.
+High performance, thanks to Starlette and Pydantic.
+How do you define a basic FastAPI application?
+
+Example:
+python
+Copy code
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+What are the different HTTP methods supported by FastAPI?
+
+GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD.
+Features and Functionality
+How does FastAPI handle request validation?
+
+FastAPI uses Pydantic models for validation and serialization.
+Example:
+python
+Copy code
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    price: float
+How do you define query parameters in FastAPI?
+
+Example:
+python
+Copy code
+@app.get("/items/")
+def read_item(skip: int = 0, limit: int = 10):
+    return {"skip": skip, "limit": limit}
+What are Path Parameters, and how do you use them in FastAPI?
+
+Path parameters are part of the URL. Example:
+python
+Copy code
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    return {"item_id": item_id}
+How do you define request body in FastAPI?
+
+Using Pydantic models:
+python
+Copy code
+@app.post("/items/")
+def create_item(item: Item):
+    return {"name": item.name, "price": item.price}
+Advanced FastAPI Features
+What are dependency injections in FastAPI?
+
+FastAPI provides a mechanism to inject dependencies into your routes. Example:
+python
+Copy code
+from fastapi import Depends
+
+def common_dependency():
+    return "common_value"
+
+@app.get("/items/")
+def read_items(dep: str = Depends(common_dependency)):
+    return {"dependency": dep}
+How does FastAPI support asynchronous programming?
+
+FastAPI is built on Starlette, enabling asynchronous operations using async and await.
+Example:
+python
+Copy code
+import asyncio
+
+@app.get("/async-items/")
+async def get_async_items():
+    await asyncio.sleep(1)
+    return {"message": "Async call completed"}
+How does FastAPI generate API documentation?
+
+FastAPI automatically generates interactive API documentation using Swagger UI and ReDoc at:
+Swagger: /docs
+ReDoc: /redoc
+Authentication and Security
+How do you implement authentication in FastAPI?
+
+Use OAuth2 or API keys. Example using OAuth2:
+python
+Copy code
+from fastapi.security import OAuth2PasswordBearer
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.get("/users/me/")
+def read_users_me(token: str = Depends(oauth2_scheme)):
+    return {"token": token}
+How do you secure an API with FastAPI?
+
+Use HTTPS.
+Validate inputs with Pydantic.
+Use OAuth2 for token-based authentication.
+Implement rate limiting with middleware.
+Debugging and Testing
+How do you test FastAPI applications?
+
+Use Python’s pytest along with FastAPI’s TestClient.
+Example:
+python
+Copy code
+from fastapi.testclient import TestClient
+
+client = TestClient(app)
+
+def test_read_root():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello, World!"}
+How do you handle exceptions in FastAPI?
+
+Use HTTPException or custom exception handlers.
+Example:
+python
+Copy code
+from fastapi import HTTPException
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    if item_id <= 0:
+        raise HTTPException(status_code=400, detail="Invalid ID")
+    return {"item_id": item_id}
+Deployment and Performance
+How do you deploy a FastAPI application?
+
+Use ASGI servers like Uvicorn or Hypercorn.
+Example command:
+bash
+Copy code
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+How do you optimize the performance of a FastAPI application?
+
+Use asynchronous programming effectively.
+Employ caching (e.g., Redis).
+Optimize database queries.
+Use middleware to handle rate limiting and compression.
+Scenario-Based Questions
+How would you implement pagination in FastAPI?
+
+Use query parameters (limit and skip) to paginate results.
+What middleware options does FastAPI provide?
+
+Middleware for CORS, GZip compression, etc.
+Example:
+python
+Copy code
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+How do you handle file uploads in FastAPI?
+
+Use File and UploadFile classes:
+python
+Copy code
+from fastapi import File, UploadFile
+
+@app.post("/upload/")
+async def upload_file(file: UploadFile):
+    contents = await file.read()
+    return {"filename": file.filename, "content_length": len(contents)}
+These questions cover basic, intermediate, and advanced FastAPI topics, helping you prepare effectively for interviews.
+
+
+
+
+
+

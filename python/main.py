@@ -1,19 +1,19 @@
 # GENERATE AN INFINITE FIBONNACI RERIES BY GENERATER
 
-# def fibonacci():
-#     a,b=0,1
-#     while True:
-#         yield a
-#         a,b=b,a+b
-# f1 = fibonacci()
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
-# print(next(f1))
+def fibonacci():
+    a,b=0,1
+    while True:
+        yield a
+        a,b=b,a+b
+f1 = fibonacci()
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
+print(next(f1))
 
 # l = [1,2,8,6,25,88,21,4]
 
@@ -1071,3 +1071,22 @@ print(f"The longest substring between duplicate characters: '{longest_string}'")
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+>>>>>>> 6911adee711028b41c84988a82c4a5192a941f4f
