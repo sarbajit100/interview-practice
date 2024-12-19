@@ -1,19 +1,19 @@
 # GENERATE AN INFINITE FIBONNACI RERIES BY GENERATER
 
-def fibonacci():
-    a,b=0,1
-    while True:
-        yield a
-        a,b=b,a+b
-f1 = fibonacci()
-print(next(f1))
-print(next(f1))
-print(next(f1))
-print(next(f1))
-print(next(f1))
-print(next(f1))
-print(next(f1))
-print(next(f1))
+# def fibonacci():
+#     a,b=0,1
+#     while True:
+#         yield a
+#         a,b=b,a+b
+# f1 = fibonacci()
+# print(next(f1))
+# print(next(f1))
+# print(next(f1))
+# print(next(f1))
+# print(next(f1))
+# print(next(f1))
+# print(next(f1))
+# print(next(f1))
 
 # l = [1,2,8,6,25,88,21,4]
 
@@ -1011,52 +1011,50 @@ print(next(f1))
 
 
 
-s1 = 'sarbajit is looking for job'
-longest_string = ''
-n = len(s1)
+# s1 = 'sarbajit is looking for job'
+# longest_string = ''
+# n = len(s1)
 
-# Iterate over each character as the starting point
-for left in range(n):
-    for right in range(n - 1, left, -1):  # Start from the end and move left
-        if s1[left] == s1[right]:
-            # Check the substring length
-            current_substring = s1[left + 1:right]
-            if len(current_substring) > len(longest_string):
-                longest_string = current_substring
-            break  # No need to check further for this `left`
+# # Iterate over each character as the starting point
+# for left in range(n):
+#     for right in range(n - 1, left, -1):  # Start from the end and move left
+#         if s1[left] == s1[right]:
+#             # Check the substring length
+#             current_substring = s1[left + 1:right]
+#             if len(current_substring) > len(longest_string):
+#                 longest_string = current_substring
+#             break  # No need to check further for this `left`
 
-print(f"The longest substring between duplicate characters: '{longest_string}'")
-s1 = 'sarbajit is looking for job'
-longest_string = ''
-left = 0
-n = len(s1)
+# print(f"The longest substring between duplicate characters: '{longest_string}'")
+# s1 = 'sarbajit is looking for job'
+# longest_string = ''
+# left = 0
+# n = len(s1)
 
-while left < n:
-    right = n - 1  # Start the `right` pointer from the end of the string
-    while right > left:
-        if s1[left] == s1[right]:
-            current_substring = s1[left + 1:right]
-            if len(current_substring) > len(longest_string):
-                longest_string = current_substring
-            break  # Exit the inner loop once a match is found
-        right -= 1  # Move the `right` pointer to the left
-    left += 1  # Move the `left` pointer to the next character
+# while left < n:
+#     right = n - 1  # Start the `right` pointer from the end of the string
+#     while right > left:
+#         if s1[left] == s1[right]:
+#             current_substring = s1[left + 1:right]
+#             if len(current_substring) > len(longest_string):
+#                 longest_string = current_substring
+#             break  # Exit the inner loop once a match is found
+#         right -= 1  # Move the `right` pointer to the left
+#     left += 1  # Move the `left` pointer to the next character
 
-print(f"The longest substring between duplicate characters: '{longest_string}'")
+# print(f"The longest substring between duplicate characters: '{longest_string}'")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+num = -2548
+reverse_num = 0
+is_negative = num<0
+num = abs(num)
+while num>0:
+    digit = num%10
+    reverse_num = reverse_num*10+digit
+    num//=10
+if is_negative:
+    reverse_num = -reverse_num
+print(reverse_num)
 
 
 
@@ -1071,8 +1069,19 @@ print(f"The longest substring between duplicate characters: '{longest_string}'")
 
 
 
-<<<<<<< HEAD
-=======
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1089,4 +1098,4 @@ print(f"The longest substring between duplicate characters: '{longest_string}'")
 
 
     
->>>>>>> 6911adee711028b41c84988a82c4a5192a941f4f
+
