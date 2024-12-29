@@ -1,12 +1,12 @@
 # Remove Duplicates from Sorted Array
-num = [1,5,6,8,5,1,9]
-nums = sorted(num)
-l=1
-for r in range(1,len(nums)):
-    if nums[r] != nums[r-1]:
-        nums[l] = nums[r]
-        l += 1
-print(l)
+# num = [1,5,6,8,5,1,9]
+# nums = sorted(num)
+# l=1
+# for r in range(1,len(nums)):
+#     if nums[r] != nums[r-1]:
+#         nums[l] = nums[r]
+#         l += 1
+# print(l)
 
 # Best Time to Buy and Sell Stock II
 # prices = [7,1,5,3,6,4]
@@ -183,3 +183,21 @@ print(l)
 #             row[r].add(board[r][c])
 #             square[(r/3,c/3)].add(board[r][c])
 #     return True
+# find if any element have duplicate or not if duplicate print true or false
+# arr = [1,2,3,4]
+# my_set = set(arr)
+# if len(arr) == len(my_set):
+#     print(False)
+# else:
+#     print(True)
+
+# find the missing number in a list
+
+nums = [1,2,1,3,6,3]
+missing_nums = []
+nums_set = set(nums)
+
+for i in range(1,len(nums)+1):
+    if i not in nums_set:
+        missing_nums.append(i)
+print(missing_nums)
