@@ -60,3 +60,51 @@ class Solution:
             pre = cur
             cur = temp
         return pre
+
+# Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        num = []
+        while head:
+            num.append(head.val)
+            head = head.next
+        l, r = 0, len(num)-1
+        while l<r:
+            if num[l] != num[r]:
+                return False
+            l+=1
+            r-=1
+        return True
+		
+# Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+# There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. 
+# Internally, pos is used to denote the index of the node that tail's next pointer is connected to. 
+# Note that pos is not passed as a parameter.
+
+# Return true if there is a cycle in the linked list. Otherwise, return false.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if fast == slow:
+                return True
+        return False
+        
+        
